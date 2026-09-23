@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Buadren AC â design tokens
+   Buadren AC — design tokens
    Palette: obsidian stone + lumen gold + mana teal, evoking Dereth's ruins
    Type: Cinzel (carved/inscriptional) for display, Manrope for body/UI
    ========================================================================== */
@@ -286,7 +286,7 @@ p {
   opacity: 0.85;
 }
 
-/* ----------------------------------------------------------- Section */
+/* --------------------------------------------------------- Section */
 
 section {
   padding: 64px 0;
@@ -345,7 +345,7 @@ section {
 
 .fact-list a { color: var(--teal-bright); }
 
-/* --------------------------------------------------------- Feature grid */
+/* -------------------------------------------------------- Feature grid */
 
 .feature-grid {
   display: grid;
