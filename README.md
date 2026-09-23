@@ -1,6 +1,6 @@
 # Buadren AC Website
 
-Source for [www.buadren.com](https://www.buadren.com/), the website for **Buadren**, a small,
+Source for [www.buadren.com](https://www.buadren.com/), the website for **Buadren AC**, a small,
 community-run Asheron's Call PvE server running on [ACE](https://github.com/ACEmulator/ACE).
 
 - **Server:** `gs1.buadren.com:9000`
@@ -66,6 +66,6 @@ goes live automatically within a minute or two.
 
 ## Disclaimer
 
-Asheron's Call was a registered trademark of Turbine, Inc. and WB Games Inc. Buadren is not
+Asheron's Call was a registered trademark of Turbine, Inc. and WB Games Inc. Buadren AC is not
 associated or affiliated in any way with Turbine, Inc. or WB Games Inc. The Radiant Blood
 artwork in `docs/img/` comes from Asheron's Call and belongs to its respective owners.
