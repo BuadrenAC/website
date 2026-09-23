@@ -286,7 +286,7 @@ p {
   opacity: 0.85;
 }
 
-/* --------------------------------------------------------- Section */
+/* -------------------------------------------------------------- Section */
 
 section {
   padding: 64px 0;
@@ -345,7 +345,7 @@ section {
 
 .fact-list a { color: var(--teal-bright); }
 
-/* -------------------------------------------------------- Feature grid */
+/* ---------------------------------------------------------- Feature grid */
 
 .feature-grid {
   display: grid;
@@ -554,7 +554,7 @@ table.spell-table th {
 
 table.spell-table tr:last-child td { border-bottom: none; }
 
-/* ------------------------------------------------------------- Footer */
+/* -------------------------------------------------------------- Footer */
 
 footer {
   border-top: 1px solid var(--border-soft);
