@@ -35,6 +35,11 @@ Links shared on Discord, Facebook, X, etc. show `docs/img/og-banner.png` (1200×
 Open Graph / Twitter tags in each page's `<head>`. The embed accent color comes from the
 `theme-color` meta tag.
 
+The image tags point at the `raw.githubusercontent.com` copy of the banner rather than
+`www.buadren.com`, because the custom domain has no valid HTTPS certificate yet and crawlers like
+Discord's refuse to fetch images over a bad certificate. Once HTTPS works on the custom domain,
+they can point back at `https://www.buadren.com/img/og-banner.png`.
+
 To change the banner (for example, if the server address changes), edit
 `social/og-banner.html`, open it in a browser at exactly 1200×630, screenshot it, and save the
 result over `docs/img/og-banner.png`. Discord caches embeds, so an old preview may stick around for
