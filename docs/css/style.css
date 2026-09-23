@@ -1,25 +1,26 @@
 /* ==========================================================================
    Buadren AC — design tokens
-   Palette: obsidian stone + lumen gold + mana teal, evoking Dereth's ruins
+   Palette: Radiant Blood — crimson banner cloth, gilded trim, blood-drop sigil
    Type: Cinzel (carved/inscriptional) for display, Manrope for body/UI
    ========================================================================== */
 
 :root {
-  --bg: #0b0d16;
-  --bg-raised: #131829;
-  --bg-panel: #161c30;
-  --bg-panel-alt: #1c2338;
-  --border: #2a3150;
-  --border-soft: #212843;
+  --bg: #110a0b;
+  --bg-raised: #1a0f11;
+  --bg-panel: #1e1113;
+  --bg-panel-alt: #271517;
+  --border: #45242a;
+  --border-soft: #2f1a1d;
 
-  --gold: #c9a24b;
-  --gold-bright: #e6c674;
-  --teal: #5fb3ad;
-  --teal-bright: #7fd0c9;
+  --gold: #d4a94f;
+  --gold-bright: #ecca7a;
+  --blood: #b3202a;
+  --blood-deep: #8e1820;
+  --blood-bright: #e2515a;
 
-  --text: #eae6da;
-  --text-muted: #9aa0ba;
-  --text-faint: #6b7189;
+  --text: #efe6dc;
+  --text-muted: #b5a4a1;
+  --text-faint: #806c69;
 
   --font-display: "Cinzel", "Iowan Old Style", "Palatino Linotype", serif;
   --font-body: "Manrope", -apple-system, "Segoe UI", sans-serif;
@@ -40,8 +41,8 @@ body {
   margin: 0;
   background: var(--bg);
   background-image:
-    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(201, 162, 75, 0.08), transparent 60%),
-    radial-gradient(ellipse 700px 500px at 100% 10%, rgba(95, 179, 173, 0.06), transparent 55%);
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(179, 32, 42, 0.18), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 100% 10%, rgba(212, 169, 79, 0.06), transparent 55%);
   color: var(--text);
   font-family: var(--font-body);
   font-size: 16px;
@@ -89,7 +90,7 @@ p {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(11, 13, 22, 0.85);
+  background: rgba(17, 10, 11, 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-soft);
 }
@@ -111,8 +112,8 @@ p {
 }
 
 .brand-mark {
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
   flex-shrink: 0;
 }
 
@@ -152,15 +153,16 @@ p {
 }
 
 .nav-links .nav-discord {
-  color: var(--bg);
-  background: var(--gold);
+  color: var(--text);
+  background: var(--blood);
+  border: 1px solid var(--gold);
   padding: 8px 16px;
   border-radius: var(--radius);
   font-weight: 600;
 }
 
 .nav-links .nav-discord::after { display: none; }
-.nav-links .nav-discord:hover { background: var(--gold-bright); color: var(--bg); }
+.nav-links .nav-discord:hover { background: var(--blood-bright); color: #fff; }
 
 .nav-toggle {
   display: none;
@@ -188,7 +190,7 @@ p {
 }
 
 .hero-eyebrow {
-  color: var(--teal-bright);
+  color: var(--blood-bright);
   font-size: 0.95rem;
   margin-bottom: 14px;
 }
@@ -219,8 +221,11 @@ p {
 }
 
 .hero-art {
+  justify-self: center;
   width: 100%;
+  max-width: 256px;
   height: auto;
+  filter: drop-shadow(0 0 40px rgba(179, 32, 42, 0.45));
 }
 
 /* --------------------------------------------------------------- Buttons */
@@ -242,11 +247,12 @@ p {
 .btn:hover { transform: translateY(-1px); }
 
 .btn-primary {
-  background: var(--gold);
-  color: #17130a;
+  background: linear-gradient(var(--blood), var(--blood-deep));
+  border-color: var(--gold);
+  color: var(--text);
 }
 
-.btn-primary:hover { background: var(--gold-bright); }
+.btn-primary:hover { background: var(--blood-bright); color: #fff; }
 
 .btn-outline {
   background: transparent;
@@ -255,8 +261,8 @@ p {
 }
 
 .btn-outline:hover {
-  border-color: var(--teal);
-  color: var(--teal-bright);
+  border-color: var(--blood);
+  color: var(--blood-bright);
 }
 
 /* ------------------------------------------------------------- Dividers */
@@ -343,7 +349,7 @@ section {
 
 .fact-list b { color: var(--text); font-weight: 600; text-align: right; }
 
-.fact-list a { color: var(--teal-bright); }
+.fact-list a { color: var(--blood-bright); }
 
 /* ---------------------------------------------------------- Feature grid */
 
@@ -390,7 +396,7 @@ section {
 .teaser-date {
   flex-shrink: 0;
   width: 108px;
-  color: var(--teal-bright);
+  color: var(--blood-bright);
   font-size: 0.85rem;
 }
 
@@ -476,7 +482,7 @@ section {
   font-size: 0.95rem;
 }
 
-.at-a-glance li::marker { color: var(--teal); }
+.at-a-glance li::marker { color: var(--blood); }
 
 .changelog-entry {
   border-bottom: 1px solid var(--border-soft);
@@ -490,7 +496,7 @@ section {
 .changelog-entry:last-of-type { border-bottom: none; }
 
 .entry-date {
-  color: var(--teal-bright);
+  color: var(--blood-bright);
   font-family: var(--font-display);
   font-size: 0.95rem;
   letter-spacing: 0.02em;
@@ -602,7 +608,7 @@ footer {
 
 @media (max-width: 860px) {
   .hero .container { grid-template-columns: 1fr; }
-  .hero-art { max-width: 220px; margin: 0 auto; }
+  .hero-art { max-width: 160px; margin: 0 auto; }
   .two-col { grid-template-columns: 1fr; }
   .feature-grid { grid-template-columns: 1fr; }
   .changelog-entry { grid-template-columns: 1fr; gap: 10px; }
