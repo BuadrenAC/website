@@ -18,7 +18,7 @@ docs/
 ├── changelog.html   # Full history of server changes
 ├── css/style.css    # All styling; colors and fonts are tokens in :root
 ├── js/script.js     # Mobile nav toggle and footer year
-├── img/             # Radiant Blood banner (hero) and icon (favicon)
+├── img/             # Discord icon (logo/favicon), Radiant Blood banner (hero), og-banner.png (social previews)
 └── CNAME            # Custom domain for GitHub Pages
 ```
 
@@ -28,6 +28,17 @@ The site uses the **Radiant Blood** society look, matching our Discord: crimson 
 gold trim, and the blood-drop sigil. The palette lives in the `:root` block at the top of
 `docs/css/style.css` (`--blood*`, `--gold*`, `--bg*`, `--text*`). Change colors there, not in
 individual rules.
+
+## Social previews
+
+Links shared on Discord, Facebook, X, etc. show `docs/img/og-banner.png` (1200×630) through the
+Open Graph / Twitter tags in each page's `<head>`. The embed accent color comes from the
+`theme-color` meta tag.
+
+To change the banner (for example, if the server address changes), edit
+`social/og-banner.html`, open it in a browser at exactly 1200×630, screenshot it, and save the
+result over `docs/img/og-banner.png`. Discord caches embeds, so an old preview may stick around for
+a while after you change it.
 
 ## Previewing locally
 
@@ -44,8 +55,8 @@ Then open <http://localhost:8000>.
 - **New changelog entry:** add a `changelog-entry` block at the top of the list in
   `changelog.html`. If it's worth featuring, also update the "Latest from the changelog" teaser
   in `index.html`.
-- **Connection details:** the server address appears in `index.html` (hero and "At a glance")
-  and `play.html`. Update all of them.
+- **Connection details:** the server address appears in `index.html` (hero and "At a glance"),
+  `play.html`, and the social banner. Update all of them.
 - **Nav/footer:** these are copied into each page by hand. Update all three HTML files.
 
 ## Deployment
