@@ -2,343 +2,588 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src https://servers.treestats.net; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Changelog — Buadren AC</title>
 <meta name="description" content="Every deviation from retail Asheron's Call on Buadren AC, newest first: Enlightenment, loot, fellowships, and more.">
 <link rel="canonical" href="https://www.buadren.com/changelog.html">
 <meta name="theme-color" content="#b3202a">
+<meta name="color-scheme" content="dark">
 <meta property="og:site_name" content="Buadren AC">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.buadren.com/changelog.html">
 <meta property="og:title" content="Changelog — Buadren AC">
 <meta property="og:description" content="Every deviation from retail Asheron's Call on Buadren AC, newest first: Enlightenment, loot, fellowships, and more.">
-<meta property="og:image" content="https://www.buadren.com/img/og-banner.png">
+<meta property="og:image" content="https://www.buadren.com/img/og-banner.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Buadren AC: the Radiant Blood emblem beside the server name and address, gs1.buadren.com:9000">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Changelog — Buadren AC">
 <meta name="twitter:description" content="Every deviation from retail Asheron's Call on Buadren AC, newest first: Enlightenment, loot, fellowships, and more.">
-<meta name="twitter:image" content="https://www.buadren.com/img/og-banner.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="img/buadren-icon.png">
-<link rel="apple-touch-icon" href="img/buadren-icon.png">
+<meta name="twitter:image" content="https://www.buadren.com/img/og-banner.jpg">
+<link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cinzel-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="stylesheet" href="css/style.css">
+<script src="js/script.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
-<nav class="site-nav">
-  <div class="container">
+<header class="site-header">
+  <nav class="container site-nav" aria-label="Main">
     <a href="index.html" class="brand">
-      <img class="brand-mark" src="img/buadren-icon.png" alt="" width="30" height="30">
+      <img class="brand-mark" src="img/brand-mark.webp" alt="" width="30" height="30">
       Buadren AC
     </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="play.html">Play</a>
-      <a href="changelog.html" class="active">Changelog</a>
-      <a href="https://discord.gg/yMkzW3yAd4" target="_blank" rel="noopener" class="nav-discord">Discord</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero" style="padding-bottom:36px;">
-  <div class="container" style="grid-template-columns:1fr;">
-    <div class="hero-copy">
-      <div class="hero-eyebrow">Newest first</div>
-      <h1>Changelog</h1>
-      <p class="lede">Everything that makes Buadren AC different from retail Asheron's Call. For the raw, line-by-line diff from retail, see the modifications spreadsheet.</p>
-      <div class="hero-actions">
-        <a class="btn btn-outline" href="https://docs.google.com/spreadsheets/d/1Fc6juqYIBGggwB1l58WI_9aONQDe2IOWVq7sVgkC1uI/edit?usp=sharing" target="_blank" rel="noopener">Full modifications spreadsheet →</a>
-      </div>
-    </div>
-  </div>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+      Menu
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="play.html">Play</a></li>
+      <li><a href="changelog.html" aria-current="page">Changelog</a></li>
+      <li><a href="https://discord.gg/yMkzW3yAd4" class="nav-discord">Discord</a></li>
+    </ul>
+  </nav>
 </header>
 
-<section style="padding-top:0;">
-  <div class="container">
-
-    <div class="at-a-glance">
-      <h2>At a glance</h2>
-      <ul>
-        <li>5 concurrent clients allowed per account</li>
-        <li>10x XP and 10x Luminance, each halved (roughly) with every Enlightenment</li>
-        <li>Tier 8 loot can roll up to +2 D/DR on armor</li>
-        <li>Ratings can roll up to +5 V/HB on jewelry, and +5 D/DR on underclothes and cloaks</li>
-        <li>No spell component burn</li>
-        <li>Fellowships up to 15 — join from anywhere by messaging a member "xp," and any level shares XP evenly with any other</li>
-      </ul>
+<main id="main" tabindex="-1">
+  <div class="hero hero-short">
+    <div class="container">
+      <p class="hero-eyebrow">Newest first</p>
+      <h1>Changelog</h1>
+      <p class="lede">Everything that makes Buadren AC different from retail Asheron's Call. Search it, filter it by topic, or link straight to an entry.</p>
     </div>
-
-    <!-- 2026 -->
-
-    <div class="changelog-entry">
-      <div class="entry-date">Jan 4, 2026</div>
-      <div class="entry-body">
-        <h3>125 Eaters get sharper teeth</h3>
-        <ul>
-          <li>125 Eaters now have two additional jaw droppers.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="changelog-entry">
-      <div class="entry-date">Jan 3, 2026</div>
-      <div class="entry-body">
-        <h3>Arwic moves to Marketplace</h3>
-        <p>Content that had been custom-placed in Arwic is moving (or has moved) to Marketplace, finishing a relocation that's been planned for a while — it's time to de-custom that landblock.</p>
-      </div>
-    </div>
-
-    <div class="changelog-entry">
-      <div class="entry-date">Jan 3, 2026</div>
-      <div class="entry-body">
-        <h3>The Rebaser</h3>
-        <p>Server code is now current with upstream ACE, with our customizations put back on top. The database is likewise current, with most of our customizations re-applied. This kicked off an ongoing effort to track down anything that isn't quite as it should be content-side — reports welcome in <em>server-enhancement-ideas</em>.</p>
-      </div>
-    </div>
-
-    <!-- 2025 -->
-
-    <div class="changelog-entry">
-      <div class="entry-date">Sep 25, 2025</div>
-      <div class="entry-body">
-        <h3>Luminance from high-level kills</h3>
-        <ul>
-          <li>All level 200+ monsters now award a small amount of Luminance (you still need to be Luminance-flagged).</li>
-          <li>Tier 8 areas remain the best Luminance-per-kill, but the intent is to make other hunting and questing more attractive relative to squatting T8 areas.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="changelog-entry">
-      <div class="entry-date">Apr 26, 2025</div>
-      <div class="entry-body">
-        <h3>Tier 5 rares cleanup</h3>
-        <ul>
-          <li>Removed infinite Deadly Arrowheads — dated and obsolete.</li>
-          <li>Removed Foolproof Salvage Bags — easily acquired through alt currency.</li>
-          <li>Removed infinite Ivory/Leather — available on vendor.</li>
-          <li>FR max contracts increased to 300 (lightly tested).</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="changelog-entry">
-      <div class="entry-date">Apr 11, 2025</div>
-      <div class="entry-body">
-        <h3>Weapon rare exchange</h3>
-        <p>Shorty McShortpants in Marketplace will exchange weapon rares found in the wild before April 2025 for their upgraded versions. Experience on the weapon is forfeited in the trade.</p>
-      </div>
-    </div>
-
-    <div class="changelog-entry">
-      <div class="entry-date">Apr 9, 2025</div>
-      <div class="entry-body">
-        <h3>Rare weapons, finally updated</h3>
-        <p>Rare weapons are now attainable in two ways:</p>
-        <ul>
-          <li>As a regular rare drop from a corpse — not attuned or bonded.</li>
-          <li>Purchased from Wendi the Wise with Tokens of Wisdom — attuned and bonded.</li>
-        </ul>
-        <p>Troy exchanges items bought from Wendi back into their equivalent Wisdom Tokens.</p>
-      </div>
-    </div>
-
-    <div class="changelog-entry">
-      <div class="entry-date">Apr 1, 2025</div>
-      <div class="entry-body">
-        <h3>Not an April Fools' joke</h3>
-        <ul>
-          <li>Wrapped Deadly Prismatic Arrowheads, Arrowshafts, and Quarrelshafts now stack to 1000 (previously 100).</li>
-          <li>Prior Kothmox drops 5 staves in the Society Lords Test (previously 1).</li>
-          <li>Massive Mana Charges are now sellable.</li>
-          <li>Enhanced Health and Mana Elixirs are no longer attuned.</li>
-          <li>The TN portal in Marketplace now drops you on the Annex side.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="changelog-entry">
-      <div class="entry-date">Mar 2025</div>
-      <div class="entry-body">
-        <h3>Better fellowship invites</h3>
-        <p>The "xp" message command now works to re-invite players to over-maxed, locked fellowships, and players sending the command get a server response explaining why they weren't invited if it fails.</p>
-      </div>
-    </div>
-
-    <div class="changelog-entry">
-      <div class="entry-date">Mar 2025</div>
-      <div class="entry-body">
-        <h3>Re-balancing the Force: loot enchantment rework</h3>
-        <p>A buffs-only rebalance (cantrips unaffected):</p>
-        <ul>
-          <li>Armor now defaults to 1 enchantment with a chance at a 2nd (previously 0 with a chance at 1). Clothing "armors" are unaffected and remain 1–3 enchantments.</li>
-          <li>Creature, Void, War, and Assess spells removed from spell tables entirely.</li>
-          <li>Tinker skills removed from all tables except Crowns and Tinker set items.</li>
-          <li>Alchemy and Cooking removed from all tables except Leather Caps and Crafter set items.</li>
-          <li>Spell groupings attached to armor slots were reworked across the board.</li>
-        </ul>
-        <div class="spell-table-wrap">
-          <table class="spell-table">
-            <thead><tr><th>Slot</th><th>Spell groupings</th></tr></thead>
-            <tbody>
-              <tr><td>Armor Head (15)</td><td>Invuln, Impreg, Healing, Lockpick, Fletch, Life, Item, Arcane, Mana C, all Secondaries</td></tr>
-              <tr><td>Cloth Head (22)</td><td>Same as Armor Head, plus Focus, Willpower, Magic Res, Vitals, Salvage</td></tr>
-              <tr><td>Crowns (13)</td><td>Focus, Willpower, all Tinks, Leadership, Arcane, Mana C, Vitals, Salvage</td></tr>
-              <tr><td>Leather Caps (22)</td><td>Same as Cloth Head, plus Alchemy, Cooking, Loyalty</td></tr>
-              <tr><td>Upper Body (12)</td><td>Strength, Endurance, Magic Res, Summon, all Secondaries except Shield, Vitals</td></tr>
-              <tr><td>Armor Hands (16)</td><td>Coordination, Healing, all Secondaries, Mana C, Lockpick, Fletch, all Primaries</td></tr>
-              <tr><td>Cloth Hands (20)</td><td>Same as Armor Hands, plus Arcane, Life, Item, Salvage</td></tr>
-              <tr><td>Lower Body (14)</td><td>Summon, Life, Item, Focus, Willpower, Coordination, Quickness, all Primaries, Jump, Sprint</td></tr>
-              <tr><td>Armor Feet (16)</td><td>Quickness, Healing, Life, Item, all Primaries, Jump, Sprint, Lockpick, Fletch, Arcane, Invuln, Impreg</td></tr>
-              <tr><td>Cloth Feet (18)</td><td>Same as Armor Feet, plus Loyalty and Salvage</td></tr>
-              <tr><td>Underclothes (8)</td><td>Life Protections only</td></tr>
-              <tr><td>Jewelry (22)</td><td>Attributes, Life Protections, Vitals, Invuln, Impreg, Magic Res, Arcane, Mana C</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p style="margin-top:10px;">Primaries = Heavy, Finesse, Light, Missile, Two-Hand. Secondaries = Reck, Sneak, Deception, Dual Wield, Dirty Fighting, Shield. Tink = Armor/Weapon/Magic Item/Item Tinkering. Vitals = Renew, Rejuv, Mana Renew.</p>
-      </div>
-    </div>
-
-    <div class="changelog-entry">
-      <div class="entry-date">Mar 2025</div>
-      <div class="entry-body">
-        <h3>Keylore clones himself</h3>
-        <p>Keylore's key-selling services are now also available at FV, TouTou, and Neftet.</p>
-      </div>
-    </div>
-
-    <div class="changelog-entry">
-      <div class="entry-date">Mar 2025</div>
-      <div class="entry-body">
-        <h3>Ultimate keys from T8 kill tasks</h3>
-        <p>Kill task rewards in the Hoshino and Rynthid tier 8 areas now give Ultimate Legendary Keys instead of Durables, and Luminance rewards there were adjusted upward.</p>
-      </div>
-    </div>
-
-    <div class="changelog-entry">
-      <div class="entry-date">Feb 2025</div>
-      <div class="entry-body">
-        <h3>Legendary chest pulls get bigger</h3>
-        <p>Legendary Weapon and Armor chests in Arwic now give a random 10–20 items per pull. The Ultimate Legendary chest gives 20.</p>
-      </div>
-    </div>
-
-    <div class="changelog-entry">
-      <div class="entry-date">Feb 2025</div>
-      <div class="entry-body">
-        <h3>VR drop rates, tinkering &amp; society armor</h3>
-        <ul>
-          <li>Amber shard drop rates increased on all non-boss monsters.</li>
-          <li>Luminous Amber Gems can now be tinkered multiple times, depending on armor tinkering skill and the workmanship of the armor.</li>
-          <li>Luminance rewards increased for most kill tasks.</li>
-          <li>Oak Weapons removed from Kervim'telek and moved to Dargen; Oak Weapons now carry Crushing Blow.</li>
-          <li>Amber shard turn-ins increased: Night Brier and Wind Fury now give 60, Norshuntyr gives 80, Zerzelikyr gives 100. Refunds for unwanted items at Kervim'telek were also increased.</li>
-          <li>Society armor set bonuses increased: 2 pieces = +4 attributes, 4 = +8, 6 = +13, 8 = +20, 9 = +30.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="changelog-entry">
-      <div class="entry-date">Feb 2025</div>
-      <div class="entry-body">
-        <h3>Elixirs, Pictographs &amp; Aetheria rework</h3>
-        <ul>
-          <li>Rare Elixirs and Medicated Kits removed from the Tier 2/3 rare system — now purchasable from Quis in your Society Stronghold.</li>
-          <li>Rare Tier 5 Pictographs no longer cast a level 7 buff; instead they cast the legendary cantrip of the attribute they represent, and moved from Tier 5 to Tier 3, greatly increasing the odds of getting one — or a full set.</li>
-          <li>Aetheria's chance table was reworked, making level 4/5 Aetheria more likely in higher-tier monster and hunting zones.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Late 2024 / early 2025, undated in source -->
-
-    <div class="changelog-entry">
-      <div class="entry-date">Late 2024</div>
-      <div class="entry-body">
-        <h3>Society chests &amp; Arwic vendors</h3>
-        <ul>
-          <li>Chests that award dedication set pieces now give 5 items (previously 2), with chest luck raised to 94% (previously 0%). The 20-hour timer on handing in armor writs for these chests was also removed — keep handing in writs even if an NPC's text still says "once a day."</li>
-          <li>Vendors and clicky portals were moved from Arwic to Marketplace, with the Arwic versions to follow soon after.</li>
-          <li>Work on updated rare weapons was ongoing during this period, with a handful available from Wendi the Wise and the same versions findable in the wild (unattuned/unbonded) — this work was completed in April 2025, above.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="changelog-entry">
-      <div class="entry-date">Dec 2024</div>
-      <div class="entry-body">
-        <h3>Better questing rewards</h3>
-        <p>Legendary chests at the end of legendary quests now have the highest luck factor in the game, at 94%.</p>
-      </div>
-    </div>
-
-    <div class="changelog-entry">
-      <div class="entry-date">Nov 2024</div>
-      <div class="entry-body">
-        <h3>Thanksgiving loot update</h3>
-        <p>Aged legendary keys and society trade tokens can now be exchanged for Ultimate Legendary Keys, which open the Ultimate Legendary Key Chests in Arwic.</p>
-        <ul>
-          <li>Buy Ultimate Legendary Keys from Keylore in Arwic, or from your Society Quartermaster using society trade tokens (under the Keys tab).</li>
-          <li>Regular legendary chests roll at a 30% luck factor; Ultimate chests roll at 80% — still RNG, but far more likely to favor you.</li>
-        </ul>
-        <p>This exists because aged keys eat pack space and regular legendary chests are slow to pull from — and it gives a reason to run T8 areas that only drop aged keys.</p>
-      </div>
-    </div>
-
-    <div class="changelog-entry">
-      <div class="entry-date">Nov 16, 2024</div>
-      <div class="entry-body">
-        <h3>The Enlightenment update</h3>
-        <p>A redesign of what happens once you enlighten — the requirements to enlighten are unchanged. Maximum Enlightenments raised to 4. Each one grants:</p>
-        <ul>
-          <li>5 skill points to all skills</li>
-          <li>10 vitality points</li>
-          <li>A 50% reduction in XP and Luminance gain from kills</li>
-          <li>1 Token of Wisdom, spendable with Wendi the Wise in Arwic (who carries rare jewelry, armor, weapons, and other eternal items)</li>
-        </ul>
-        <p>Rare jewelry and armor cantrips were uplifted to Legendary, and rare jewelry gained Essence Glutton. Wendi's rare jewelry, armor, and weapons are attuned/bonded; her Eternal Kits and Mana Charges are bonded.</p>
-        <p>The XP/Luminance reduction stacks multiplicatively rather than simply subtracting 50% each time:</p>
-        <ul>
-          <li>After 1st Enlightenment — 5x rate</li>
-          <li>After 2nd — 2.5x</li>
-          <li>After 3rd — 1.25x</li>
-          <li>After 4th — 0.63x</li>
-        </ul>
-        <div class="callout">Do yourself a favor: handle burden augmentations and mule off heavy equipment before committing to Enlightenment. Attributes can reset and leave you well over 300 burden before your Token of Wisdom and Certificate of Attribute Reset arrive. You've been warned.</div>
-      </div>
-    </div>
-
-    <p class="entry-attr">Entries condensed from server announcements. For the complete, line-by-line list of every deviation from retail, see the <a href="https://docs.google.com/spreadsheets/d/1Fc6juqYIBGggwB1l58WI_9aONQDe2IOWVq7sVgkC1uI/edit?usp=sharing" target="_blank" rel="noopener">modifications spreadsheet</a>.</p>
-
   </div>
-</section>
 
-<footer>
+  <div class="section section-flush">
+    <div class="container">
+
+      <section class="at-a-glance" aria-labelledby="glance-heading">
+        <h2 id="glance-heading">The rules right now</h2>
+        <ul>
+          <li>5 concurrent clients allowed per account</li>
+          <li>10x XP and 10x Luminance, each halved (roughly) with every Enlightenment</li>
+          <li>Tier 8 armor can roll either up to +2 D/DR or up to +5 CD/CDR</li>
+          <li>Ratings can roll up to +5 V/HB on jewelry, and +5 D/DR on underclothes and cloaks</li>
+          <li>No spell component burn</li>
+          <li>Fellowships up to 15 — join from anywhere by messaging a member "xp," and any level shares XP evenly with any other</li>
+        </ul>
+      </section>
+
+      <search class="log-tools" id="log-tools" aria-label="Filter the changelog" hidden>
+        <div class="log-search">
+          <label for="log-search">Search entries</label>
+          <input id="log-search" type="search" autocomplete="off" spellcheck="false">
+        </div>
+        <div>
+          <p class="log-tags-label" id="tags-label">Topic</p>
+          <div class="log-tags" role="group" aria-labelledby="tags-label">
+            <button class="tag-btn" type="button" data-filter-tag="" aria-pressed="true">All</button>
+            <button class="tag-btn" type="button" data-filter-tag="progression" aria-pressed="false">Progression</button>
+            <button class="tag-btn" type="button" data-filter-tag="loot" aria-pressed="false">Loot</button>
+            <button class="tag-btn" type="button" data-filter-tag="fellowships" aria-pressed="false">Fellowships</button>
+            <button class="tag-btn" type="button" data-filter-tag="content" aria-pressed="false">World &amp; quests</button>
+            <button class="tag-btn" type="button" data-filter-tag="economy" aria-pressed="false">Vendors &amp; keys</button>
+            <button class="tag-btn" type="button" data-filter-tag="server" aria-pressed="false">Server</button>
+          </div>
+        </div>
+        <p class="log-count" id="log-count" role="status"></p>
+      </search>
+
+      <nav class="year-nav" aria-label="Jump to year">
+        Jump to:
+        <a href="#y2026">2026</a>
+        <a href="#y2025">2025</a>
+        <a href="#y2024">2024</a>
+      </nav>
+
+      <p class="log-empty" id="log-empty" hidden>Nothing matches that. Try a different word or topic.</p>
+
+      <section class="year-group" aria-labelledby="y2026">
+        <h2 id="y2026">2026</h2>
+
+        <article class="changelog-entry" id="catching-up-changes-we-hadn-t-written-down" data-tags="loot progression content">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2026-11">Nov 2026</time>
+            <a class="entry-link" href="#catching-up-changes-we-hadn-t-written-down">Link<span class="sr-only"> to Catching up: changes we hadn't written down</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Catching up: changes we hadn't written down</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Loot</li>
+              <li>Progression</li>
+              <li>World &amp; quests</li>
+            </ul>
+            <p>Going through the server code turned up a few long-standing changes that never made it into this log. None of these are new; they're just recorded now.</p>
+            <ul>
+            <li>Tier 8 clothing, cloaks, and jewelry roll a rating more often: 40% of the time, up from 25%.</li>
+            <li>Tier 8 armor rolls either D/DR (up to +2) or CD/CDR (up to +5, up from +2). About 28% of pieces get one.</li>
+            <li>The Luminance item mana usage augmentation is far stronger: each one counts for 40 rating points instead of 5.</li>
+            <li>Society armor can now be tailored.</li>
+            <li>Quest timers longer than 20 hours are capped at 20 hours.</li>
+            <li>Keylux, in Marketplace and several other locations, trades Ultimate Legendary Keys for a Durable Ultimate Legendary Key with 10 uses (level 150+).</li>
+            <li>Frederick the Forgetful in Marketplace offers items in exchange for DN Remarks, which come from bosses around Dereth.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="another-rebase" data-tags="server">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2026-10">Oct 2026</time>
+            <a class="entry-link" href="#another-rebase">Link<span class="sr-only"> to Another rebase</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Another rebase</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Server</li>
+            </ul>
+            <p>Server code is current with upstream ACE again (build 1.78.4821), with our customizations put back on top. Our custom content and weenies now live in the <a href="https://github.com/BuadrenAC/ACE-BuadrenAC">server repository</a> alongside the code.</p>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="shadows-of-the-realm" data-tags="content progression">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2026">2026</time>
+            <a class="entry-link" href="#shadows-of-the-realm">Link<span class="sr-only"> to Shadows of the Realm</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Shadows of the Realm</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>World &amp; quests</li>
+              <li>Progression</li>
+            </ul>
+            <p>A new daily quest. Archivist Valdus in the Holtburg Inn wants proof that someone is still pushing back the darkness: one trophy from each of five areas, handed to Keeper Serath nearby.</p>
+            <ul>
+            <li>Mumiyah Burial Wrapping from Neftet</li>
+            <li>Mhoire Ember Shard from the Graveyard of Mhoire</li>
+            <li>Frore Crystal Shard from the Frozen Valley</li>
+            <li>Hoshino Jade Seal from the Hoshino grounds</li>
+            <li>Rynthid Essence Fragment from the Rynthid territories</li>
+            </ul>
+            <p>The reward is 50,000 Luminance, once a day. Trophies are a 2% drop from creatures in those areas, and they can be traded.</p>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="garbage-barrels-by-the-chests" data-tags="content">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2026-02">Feb 2026</time>
+            <a class="entry-link" href="#garbage-barrels-by-the-chests">Link<span class="sr-only"> to Garbage barrels by the chests</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Garbage barrels by the chests</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>World &amp; quests</li>
+            </ul>
+            <p>Marketplace now has garbage barrels next to the Ultimate Legendary Chests, so you can clear out your pulls on the spot.</p>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="entry-125-eaters-get-sharper-teeth" data-tags="content">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2026-01-04">Jan 4, 2026</time>
+            <a class="entry-link" href="#entry-125-eaters-get-sharper-teeth">Link<span class="sr-only"> to 125 Eaters get sharper teeth</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>125 Eaters get sharper teeth</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>World &amp; quests</li>
+            </ul>
+            <ul>
+            <li>125 Eaters now have two additional jaw droppers.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="arwic-moves-to-marketplace" data-tags="content economy">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2026-01-03">Jan 3, 2026</time>
+            <a class="entry-link" href="#arwic-moves-to-marketplace">Link<span class="sr-only"> to Arwic moves to Marketplace</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Arwic moves to Marketplace</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>World &amp; quests</li>
+              <li>Vendors &amp; keys</li>
+            </ul>
+            <p>Content that had been custom-placed in Arwic has moved to Marketplace, finishing a relocation that's been planned for a while — it was time to de-custom that landblock.</p>
+            <ul>
+            <li>Wendi the Wise, Troy, and Shorty McShortpants now live in Marketplace.</li>
+            <li>Keylore and Keylux are there too, along with five Ultimate Legendary Chests.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="the-rebaser" data-tags="server">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2026-01-03">Jan 3, 2026</time>
+            <a class="entry-link" href="#the-rebaser">Link<span class="sr-only"> to The Rebaser</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>The Rebaser</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Server</li>
+            </ul>
+            <p>Server code is now current with upstream ACE, with our customizations put back on top. The database is likewise current, with most of our customizations re-applied. This kicked off an ongoing effort to track down anything that isn't quite as it should be content-side — reports welcome in <em>server-enhancement-ideas</em>.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="year-group" aria-labelledby="y2025">
+        <h2 id="y2025">2025</h2>
+
+        <article class="changelog-entry" id="luminance-from-high-level-kills" data-tags="progression">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2025-09-25">Sep 25, 2025</time>
+            <a class="entry-link" href="#luminance-from-high-level-kills">Link<span class="sr-only"> to Luminance from high-level kills</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Luminance from high-level kills</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Progression</li>
+            </ul>
+            <ul>
+            <li>All level 200+ monsters now award a small amount of Luminance (you still need to be Luminance-flagged).</li>
+            <li>Tier 8 areas remain the best Luminance-per-kill, but the intent is to make other hunting and questing more attractive relative to squatting T8 areas.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="tier-5-rares-cleanup" data-tags="loot">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2025-04-26">Apr 26, 2025</time>
+            <a class="entry-link" href="#tier-5-rares-cleanup">Link<span class="sr-only"> to Tier 5 rares cleanup</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Tier 5 rares cleanup</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Loot</li>
+            </ul>
+            <ul>
+            <li>Removed infinite Deadly Arrowheads — dated and obsolete.</li>
+            <li>Removed Foolproof Salvage Bags — easily acquired through alt currency.</li>
+            <li>Removed infinite Ivory/Leather — available on vendor.</li>
+            <li>FR max contracts increased to 300 (lightly tested).</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="weapon-rare-exchange" data-tags="loot economy">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2025-04-11">Apr 11, 2025</time>
+            <a class="entry-link" href="#weapon-rare-exchange">Link<span class="sr-only"> to Weapon rare exchange</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Weapon rare exchange</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Loot</li>
+              <li>Vendors &amp; keys</li>
+            </ul>
+            <p>Shorty McShortpants in Marketplace will exchange weapon rares found in the wild before April 2025 for their upgraded versions. Experience on the weapon is forfeited in the trade.</p>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="rare-weapons-finally-updated" data-tags="loot economy">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2025-04-09">Apr 9, 2025</time>
+            <a class="entry-link" href="#rare-weapons-finally-updated">Link<span class="sr-only"> to Rare weapons, finally updated</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Rare weapons, finally updated</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Loot</li>
+              <li>Vendors &amp; keys</li>
+            </ul>
+            <p>Rare weapons are now attainable in two ways:</p>
+            <ul>
+            <li>As a regular rare drop from a corpse — not attuned or bonded.</li>
+            <li>Purchased from Wendi the Wise with Tokens of Wisdom — attuned and bonded.</li>
+            </ul>
+            <p>Troy exchanges items bought from Wendi back into their equivalent Wisdom Tokens.</p>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="not-an-april-fools-joke" data-tags="economy content">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2025-04-01">Apr 1, 2025</time>
+            <a class="entry-link" href="#not-an-april-fools-joke">Link<span class="sr-only"> to Not an April Fools' joke</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Not an April Fools' joke</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Vendors &amp; keys</li>
+              <li>World &amp; quests</li>
+            </ul>
+            <ul>
+            <li>Wrapped Deadly Prismatic Arrowheads, Arrowshafts, and Quarrelshafts now stack to 1000 (previously 100).</li>
+            <li>Prior Kothmox drops 5 staves in the Society Lords Test (previously 1).</li>
+            <li>Massive Mana Charges are now sellable.</li>
+            <li>Enhanced Health and Mana Elixirs are no longer attuned.</li>
+            <li>The TN portal in Marketplace now drops you on the Annex side.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="better-fellowship-invites" data-tags="fellowships">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2025-03">Mar 2025</time>
+            <a class="entry-link" href="#better-fellowship-invites">Link<span class="sr-only"> to Better fellowship invites</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Better fellowship invites</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Fellowships</li>
+            </ul>
+            <p>The "xp" message command now works to re-invite players to over-maxed, locked fellowships, and players sending the command get a server response explaining why they weren't invited if it fails.</p>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="re-balancing-the-force-loot-enchantment-rework" data-tags="loot">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2025-03">Mar 2025</time>
+            <a class="entry-link" href="#re-balancing-the-force-loot-enchantment-rework">Link<span class="sr-only"> to Re-balancing the Force: loot enchantment rework</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Re-balancing the Force: loot enchantment rework</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Loot</li>
+            </ul>
+            <p>A buffs-only rebalance (cantrips unaffected):</p>
+            <ul>
+            <li>Armor now defaults to 1 enchantment with a chance at a 2nd (previously 0 with a chance at 1). Clothing "armors" are unaffected and remain 1–3 enchantments.</li>
+            <li>Creature, Void, War, and Assess spells removed from spell tables entirely.</li>
+            <li>Tinker skills removed from all tables except Crowns and Tinker set items.</li>
+            <li>Alchemy and Cooking removed from all tables except Leather Caps and Crafter set items.</li>
+            <li>Spell groupings attached to armor slots were reworked across the board.</li>
+            </ul>
+            <section class="spell-table-wrap" aria-labelledby="spell-table-caption" tabindex="0">
+            <table class="spell-table">
+            <caption id="spell-table-caption">Spell groupings by armor slot. The number is how many groupings the slot can draw from.</caption>
+            <thead><tr><th scope="col">Slot</th><th scope="col">Spell groupings</th></tr></thead>
+            <tbody>
+            <tr><th scope="row">Armor Head (15)</th><td>Invuln, Impreg, Healing, Lockpick, Fletch, Life, Item, Arcane, Mana C, all Secondaries</td></tr>
+            <tr><th scope="row">Cloth Head (22)</th><td>Same as Armor Head, plus Focus, Willpower, Magic Res, Vitals, Salvage</td></tr>
+            <tr><th scope="row">Crowns (13)</th><td>Focus, Willpower, all Tinks, Leadership, Arcane, Mana C, Vitals, Salvage</td></tr>
+            <tr><th scope="row">Leather Caps (22)</th><td>Same as Cloth Head, plus Alchemy, Cooking, Loyalty</td></tr>
+            <tr><th scope="row">Upper Body (12)</th><td>Strength, Endurance, Magic Res, Summon, all Secondaries except Shield, Vitals</td></tr>
+            <tr><th scope="row">Armor Hands (16)</th><td>Coordination, Healing, all Secondaries, Mana C, Lockpick, Fletch, all Primaries</td></tr>
+            <tr><th scope="row">Cloth Hands (20)</th><td>Same as Armor Hands, plus Arcane, Life, Item, Salvage</td></tr>
+            <tr><th scope="row">Lower Body (14)</th><td>Summon, Life, Item, Focus, Willpower, Coordination, Quickness, all Primaries, Jump, Sprint</td></tr>
+            <tr><th scope="row">Armor Feet (16)</th><td>Quickness, Healing, Life, Item, all Primaries, Jump, Sprint, Lockpick, Fletch, Arcane, Invuln, Impreg</td></tr>
+            <tr><th scope="row">Cloth Feet (18)</th><td>Same as Armor Feet, plus Loyalty and Salvage</td></tr>
+            <tr><th scope="row">Underclothes (8)</th><td>Life Protections only</td></tr>
+            <tr><th scope="row">Jewelry (22)</th><td>Attributes, Life Protections, Vitals, Invuln, Impreg, Magic Res, Arcane, Mana C</td></tr>
+            </tbody>
+            </table>
+            </section>
+            <p class="entry-note">Primaries = Heavy, Finesse, Light, Missile, Two-Hand. Secondaries = Reck, Sneak, Deception, Dual Wield, Dirty Fighting, Shield. Tink = Armor/Weapon/Magic Item/Item Tinkering. Vitals = Renew, Rejuv, Mana Renew.</p>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="keylore-clones-himself" data-tags="economy">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2025-03">Mar 2025</time>
+            <a class="entry-link" href="#keylore-clones-himself">Link<span class="sr-only"> to Keylore clones himself</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Keylore clones himself</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Vendors &amp; keys</li>
+            </ul>
+            <p>Keylore's key-selling services are now also available at FV, TouTou, and Neftet.</p>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="ultimate-keys-from-t8-kill-tasks" data-tags="loot progression">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2025-03">Mar 2025</time>
+            <a class="entry-link" href="#ultimate-keys-from-t8-kill-tasks">Link<span class="sr-only"> to Ultimate keys from T8 kill tasks</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Ultimate keys from T8 kill tasks</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Loot</li>
+              <li>Progression</li>
+            </ul>
+            <p>Kill task rewards in the Hoshino and Rynthid tier 8 areas now give Ultimate Legendary Keys instead of Durables, and Luminance rewards there were adjusted upward.</p>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="legendary-chest-pulls-get-bigger" data-tags="loot">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2025-02">Feb 2025</time>
+            <a class="entry-link" href="#legendary-chest-pulls-get-bigger">Link<span class="sr-only"> to Legendary chest pulls get bigger</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Legendary chest pulls get bigger</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Loot</li>
+            </ul>
+            <p>Legendary Weapon and Armor chests in Arwic now give a random 10–20 items per pull. The Ultimate Legendary chest gives 20.</p>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="vr-drop-rates-tinkering-and-society-armor" data-tags="loot content">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2025-02">Feb 2025</time>
+            <a class="entry-link" href="#vr-drop-rates-tinkering-and-society-armor">Link<span class="sr-only"> to VR drop rates, tinkering and society armor</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>VR drop rates, tinkering &amp; society armor</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Loot</li>
+              <li>World &amp; quests</li>
+            </ul>
+            <ul>
+            <li>Amber shard drop rates increased on all non-boss monsters.</li>
+            <li>Luminous Amber Gems can now be tinkered multiple times, depending on armor tinkering skill and the workmanship of the armor.</li>
+            <li>Luminance rewards increased for most kill tasks.</li>
+            <li>Oak Weapons removed from Kervim'telek and moved to Dargen; Oak Weapons now carry Crushing Blow.</li>
+            <li>Amber shard turn-ins increased: Night Brier and Wind Fury now give 60, Norshuntyr gives 80, Zerzelikyr gives 100. Refunds for unwanted items at Kervim'telek were also increased.</li>
+            <li>Society armor set bonuses increased: 2 pieces = +4 attributes, 4 = +8, 6 = +13, 8 = +20, 9 = +30.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="elixirs-pictographs-and-aetheria-rework" data-tags="loot economy">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2025-02">Feb 2025</time>
+            <a class="entry-link" href="#elixirs-pictographs-and-aetheria-rework">Link<span class="sr-only"> to Elixirs, Pictographs and Aetheria rework</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Elixirs, Pictographs &amp; Aetheria rework</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Loot</li>
+              <li>Vendors &amp; keys</li>
+            </ul>
+            <ul>
+            <li>Rare Elixirs and Medicated Kits removed from the Tier 2/3 rare system — now purchasable from Quis in your Society Stronghold.</li>
+            <li>Rare Tier 5 Pictographs no longer cast a level 7 buff; instead they cast the legendary cantrip of the attribute they represent, and moved from Tier 5 to Tier 3, greatly increasing the odds of getting one — or a full set.</li>
+            <li>Aetheria's chance table was reworked, making level 4/5 Aetheria more likely in higher-tier monster and hunting zones.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section class="year-group" aria-labelledby="y2024">
+        <h2 id="y2024">2024</h2>
+
+        <article class="changelog-entry" id="society-chests-and-arwic-vendors" data-tags="loot economy">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2024">Late 2024</time>
+            <a class="entry-link" href="#society-chests-and-arwic-vendors">Link<span class="sr-only"> to Society chests and Arwic vendors</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Society chests &amp; Arwic vendors</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Loot</li>
+              <li>Vendors &amp; keys</li>
+            </ul>
+            <ul>
+            <li>Chests that award dedication set pieces now give 5 items (previously 2), with chest luck raised to 94% (previously 0%). The 20-hour timer on handing in armor writs for these chests was also removed — keep handing in writs even if an NPC's text still says "once a day."</li>
+            <li>Vendors and clicky portals were moved from Arwic to Marketplace, with the Arwic versions to follow soon after.</li>
+            <li>Work on updated rare weapons was ongoing during this period, with a handful available from Wendi the Wise and the same versions findable in the wild (unattuned/unbonded) — this work was completed in April 2025, above.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="better-questing-rewards" data-tags="loot">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2024-12">Dec 2024</time>
+            <a class="entry-link" href="#better-questing-rewards">Link<span class="sr-only"> to Better questing rewards</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Better questing rewards</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Loot</li>
+            </ul>
+            <p>Legendary chests at the end of legendary quests now have the highest luck factor in the game, at 94%.</p>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="thanksgiving-loot-update" data-tags="loot economy">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2024-11">Nov 2024</time>
+            <a class="entry-link" href="#thanksgiving-loot-update">Link<span class="sr-only"> to Thanksgiving loot update</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>Thanksgiving loot update</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Loot</li>
+              <li>Vendors &amp; keys</li>
+            </ul>
+            <p>Aged legendary keys and society trade tokens can now be exchanged for Ultimate Legendary Keys, which open the Ultimate Legendary Key Chests in Arwic.</p>
+            <ul>
+            <li>Buy Ultimate Legendary Keys from Keylore in Arwic, or from your Society Quartermaster using society trade tokens (under the Keys tab).</li>
+            <li>Regular legendary chests roll at a 30% luck factor; Ultimate chests roll at 80% — still RNG, but far more likely to favor you.</li>
+            </ul>
+            <p>This exists because aged keys eat pack space and regular legendary chests are slow to pull from — and it gives a reason to run T8 areas that only drop aged keys.</p>
+          </div>
+        </article>
+
+        <article class="changelog-entry" id="the-enlightenment-update" data-tags="progression">
+          <div class="entry-side">
+            <time class="entry-date" datetime="2024-11-16">Nov 16, 2024</time>
+            <a class="entry-link" href="#the-enlightenment-update">Link<span class="sr-only"> to The Enlightenment update</span></a>
+          </div>
+          <div class="entry-body">
+            <h3>The Enlightenment update</h3>
+            <ul class="entry-tags" aria-label="Topics">
+              <li>Progression</li>
+            </ul>
+            <p>A redesign of what happens once you enlighten — the requirements to enlighten are unchanged. Maximum Enlightenments raised to 4. Each one grants:</p>
+            <ul>
+            <li>5 skill points to all trained skills</li>
+            <li>10 vitality points</li>
+            <li>A 50% reduction in XP and Luminance gain from kills</li>
+            <li>1 Token of Wisdom, spendable with Wendi the Wise in Arwic (who carries rare jewelry, armor, weapons, and other eternal items)</li>
+            </ul>
+            <p>Rare jewelry and armor cantrips were uplifted to Legendary, and rare jewelry gained Essence Glutton. Wendi's rare jewelry, armor, and weapons are attuned/bonded; her Eternal Kits and Mana Charges are bonded.</p>
+            <p>The XP/Luminance reduction stacks multiplicatively rather than simply subtracting 50% each time:</p>
+            <ul>
+            <li>After 1st Enlightenment — 5x rate</li>
+            <li>After 2nd — 2.5x</li>
+            <li>After 3rd — 1.25x</li>
+            <li>After 4th — 0.63x</li>
+            </ul>
+            <div class="callout callout-warning">Do yourself a favor: handle burden augmentations and mule off heavy equipment before committing to Enlightenment. Attributes can reset and leave you well over 300 burden before your Token of Wisdom and Certificate of Attribute Reset arrive. You've been warned.</div>
+          </div>
+        </article>
+      </section>
+
+      <p class="entry-attr">Entries are condensed from server announcements and the <a href="https://github.com/BuadrenAC/ACE-BuadrenAC">server source code</a>.</p>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <a href="index.html" class="brand">
-        <img class="brand-mark" src="img/buadren-icon.png" alt="" width="30" height="30">
+        <img class="brand-mark" src="img/brand-mark.webp" alt="" width="30" height="30">
         Buadren AC
       </a>
-      <nav class="footer-nav">
-        <a href="index.html">Home</a>
-        <a href="play.html">Play</a>
-        <a href="changelog.html">Changelog</a>
-        <a href="https://discord.gg/yMkzW3yAd4" target="_blank" rel="noopener">Discord</a>
-        <a href="https://treestats.net/Buadren%20AC" target="_blank" rel="noopener">Server Stats</a>
-        <a href="https://github.com/BuadrenAC" target="_blank" rel="noopener">GitHub</a>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="play.html">Play</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+          <li><a href="https://discord.gg/yMkzW3yAd4">Discord</a></li>
+          <li><a href="https://servers.treestats.net/statuses/Buadren%20AC">Server Status</a></li>
+          <li><a href="https://treestats.net/Buadren%20AC">Character Stats</a></li>
+          <li><a href="https://github.com/BuadrenAC">GitHub</a></li>
+        </ul>
       </nav>
     </div>
-    <p class="disclaimer">Asheron's Call was a registered trademark of Turbine, Inc. and WB Games Inc. Buadren AC is not associated or affiliated in any way with Turbine, Inc. or WB Games Inc. Radiant Blood artwork is from Asheron's Call and belongs to its respective owners. &copy; <span id="year"></span> Buadren AC. All rights reserved.</p>
+    <p class="disclaimer">Asheron's Call was a registered trademark of Turbine, Inc. and WB Games Inc. Buadren AC is not associated or affiliated in any way with Turbine, Inc. or WB Games Inc. Radiant Blood artwork is from Asheron's Call and belongs to its respective owners. &copy; 2026 Buadren AC. All rights reserved.</p>
   </div>
 </footer>
 
-<script src="js/script.js"></script>
 </body>
 </html>

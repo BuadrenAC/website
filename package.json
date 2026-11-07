@@ -1,0 +1,23 @@
+{
+  "name": "buadren-website",
+  "private": true,
+  "description": "Dev-only checks for the static site in docs/. Nothing here ships to GitHub Pages.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "serve": "node tests/serve.mjs",
+    "test": "npm run test:html && npm run test:site && npm run test:links && npm run test:e2e",
+    "test:html": "html-validate \"docs/**/*.html\"",
+    "test:site": "node tests/site-checks.mjs",
+    "test:links": "node tests/links.mjs",
+    "test:links:external": "node tests/links.mjs --external",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.65.0",
+    "html-validate": "^11.19.0"
+  }
+}
