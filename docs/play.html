@@ -2,151 +2,179 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src https://servers.treestats.net; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Play — Buadren AC</title>
-<meta name="description" content="How to get connected to Buadren AC: game files, Thwarg Launcher, and our live and test server addresses.">
+<meta name="description" content="How to get connected to Buadren AC: game files, Thwarg Launcher, and our server address.">
 <link rel="canonical" href="https://www.buadren.com/play.html">
 <meta name="theme-color" content="#b3202a">
+<meta name="color-scheme" content="dark">
 <meta property="og:site_name" content="Buadren AC">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.buadren.com/play.html">
 <meta property="og:title" content="Play — Buadren AC">
-<meta property="og:description" content="How to get connected to Buadren AC: game files, Thwarg Launcher, and our live and test server addresses.">
-<meta property="og:image" content="https://www.buadren.com/img/og-banner.png">
+<meta property="og:description" content="How to get connected to Buadren AC: game files, Thwarg Launcher, and our server address.">
+<meta property="og:image" content="https://www.buadren.com/img/og-banner.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Buadren AC: the Radiant Blood emblem beside the server name and address, gs1.buadren.com:9000">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Play — Buadren AC">
-<meta name="twitter:description" content="How to get connected to Buadren AC: game files, Thwarg Launcher, and our live and test server addresses.">
-<meta name="twitter:image" content="https://www.buadren.com/img/og-banner.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="img/buadren-icon.png">
-<link rel="apple-touch-icon" href="img/buadren-icon.png">
+<meta name="twitter:description" content="How to get connected to Buadren AC: game files, Thwarg Launcher, and our server address.">
+<meta name="twitter:image" content="https://www.buadren.com/img/og-banner.jpg">
+<link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cinzel-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="stylesheet" href="css/style.css">
+<script src="js/script.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
-<nav class="site-nav">
-  <div class="container">
+<header class="site-header">
+  <nav class="container site-nav" aria-label="Main">
     <a href="index.html" class="brand">
-      <img class="brand-mark" src="img/buadren-icon.png" alt="" width="30" height="30">
+      <img class="brand-mark" src="img/brand-mark.webp" alt="" width="30" height="30">
       Buadren AC
     </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="play.html" class="active">Play</a>
-      <a href="changelog.html">Changelog</a>
-      <a href="https://discord.gg/yMkzW3yAd4" target="_blank" rel="noopener" class="nav-discord">Discord</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero" style="padding-bottom:40px;">
-  <div class="container" style="grid-template-columns:1fr;">
-    <div class="hero-copy">
-      <div class="hero-eyebrow">Getting started</div>
-      <h1>Getting into Dereth</h1>
-      <p class="lede">Five steps between here and standing on the shore. Most of it is one-time setup — after that, it's just launching Thwarg and picking Buadren AC from the list.</p>
-    </div>
-  </div>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+      Menu
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="play.html" aria-current="page">Play</a></li>
+      <li><a href="changelog.html">Changelog</a></li>
+      <li><a href="https://discord.gg/yMkzW3yAd4" class="nav-discord">Discord</a></li>
+    </ul>
+  </nav>
 </header>
 
-<section style="padding-top:0;">
-  <div class="container">
-    <div class="steps">
-
-      <div class="step">
-        <div class="step-index">1</div>
-        <h3>Get your game files</h3>
-        <p>Buadren AC runs on ACE, so you'll need a working copy of the original Asheron's Call: Throne of Destiny client files before anything else will connect.</p>
-        <a class="step-link" href="https://www.emulator.ac/how-to-play/" target="_blank" rel="noopener">ACE's how-to-play guide →</a>
+<main id="main" tabindex="-1">
+  <div class="hero hero-short">
+    <div class="container">
+      <p class="hero-eyebrow">Getting started</p>
+      <h1>Getting into Dereth</h1>
+      <p class="lede">Four steps between here and standing on the shore. Most of it is one-time setup — after that, it's just launching Thwarg and picking Buadren AC from the list.</p>
+      <div class="hero-connect">
+        <p class="status-pill" data-server-status data-state="unknown" aria-live="polite">
+          <span class="status-dot" aria-hidden="true"></span>
+          <a href="https://servers.treestats.net/statuses/Buadren%20AC"><span data-status-text>Check server status</span></a>
+        </p>
       </div>
-
-      <div class="step">
-        <div class="step-index">2</div>
-        <h3>Install Thwarg Launcher</h3>
-        <p>Thwarg Launcher is what actually connects your client to emulated AC servers, Buadren AC included. Grab the installer from the official site.</p>
-        <a class="step-link" href="https://www.thwargle.com" target="_blank" rel="noopener">thwargle.com →</a>
-      </div>
-
-      <div class="step">
-        <div class="step-index">3</div>
-        <h3>Find Buadren AC in the server list</h3>
-        <p>Open Thwarg Launcher, go to Browse Servers, and look near the bottom of the list for <strong>Buadren AC</strong>. Selecting it connects you to our live server.</p>
-        <div class="callout">Server type: <strong>ACE</strong> · Live address: <strong>gs1.buadren.com:9000</strong></div>
-      </div>
-
-      <div class="step">
-        <div class="step-index">4</div>
-        <h3>Optional: add the test server</h3>
-        <p>Our test server isn't in the public Browse Servers list, so if you want to help try out changes before they ship, you'll need to add it by hand.</p>
-        <div class="callout">Test address: <strong>gs2.buadren.com:9000</strong> — added manually. It is not persistent and gets wiped as needed to, well, test.</div>
-      </div>
-
-      <div class="step">
-        <div class="step-index">5</div>
-        <h3>Say hello</h3>
-        <p>Once you're through the portal, drop into Discord and let us know you made it — it's a small community, and we like knowing who's around.</p>
-        <a class="step-link" href="https://discord.gg/yMkzW3yAd4" target="_blank" rel="noopener">Join the Discord →</a>
-      </div>
-
     </div>
   </div>
-</section>
+
+  <div class="section section-flush">
+    <div class="container play-layout">
+      <ol class="steps">
+        <li class="step">
+          <h2 class="step-title"><span class="step-index">1</span> Get your game files</h2>
+          <p>Buadren AC runs on ACE, so you'll need a working copy of the original Asheron's Call: Throne of Destiny client files before anything else will connect.</p>
+          <a href="https://www.emulator.ac/how-to-play/">ACE's how-to-play guide</a>
+        </li>
+        <li class="step">
+          <h2 class="step-title"><span class="step-index">2</span> Install Thwarg Launcher</h2>
+          <p>Thwarg Launcher is what actually connects your client to emulated AC servers, Buadren AC included. Grab the installer from the official site.</p>
+          <a href="https://www.thwargle.com">Download from thwargle.com</a>
+        </li>
+        <li class="step">
+          <h2 class="step-title"><span class="step-index">3</span> Find Buadren AC in the server list</h2>
+          <p>Open Thwarg Launcher, go to Browse Servers, and look near the bottom of the list for <strong>Buadren AC</strong>. Selecting it connects you to our live server.</p>
+          <div class="callout">
+            <p>Not in the list? Add it by hand. Server type: <strong>ACE</strong></p>
+            <span class="address"><code>gs1.buadren.com:9000</code><button class="copy-btn" type="button" data-copy="gs1.buadren.com:9000" aria-label="Copy live server address" hidden>Copy</button></span>
+          </div>
+        </li>
+        <li class="step">
+          <h2 class="step-title"><span class="step-index">4</span> Say hello</h2>
+          <p>Once you're through the portal, drop into Discord and let us know you made it — it's a small community, and we like knowing who's around.</p>
+          <a href="https://discord.gg/yMkzW3yAd4">Join the Discord</a>
+        </li>
+      </ol>
+
+      <aside class="play-aside" aria-label="Quick reference">
+        <div class="fact-panel">
+          <h2>Quick reference</h2>
+          <dl class="fact-list">
+            <div><dt>Server type</dt><dd>ACE</dd></div>
+            <div><dt>Live server</dt><dd>gs1.buadren.com:9000</dd></div>
+            <div><dt>Launcher</dt><dd><a href="https://www.thwargle.com">Thwarg Launcher</a></dd></div>
+            <div><dt>Client</dt><dd>AC: Throne of Destiny</dd></div>
+          </dl>
+        </div>
+      </aside>
+    </div>
+  </div>
 
 <div class="divider">
-  <svg class="divider-glyph" viewBox="0 0 24 24" fill="none"><path d="M12 2C10 6 5.5 11.5 5.5 15.5a6.5 6.5 0 0 0 13 0C18.5 11.5 14 6 12 2Z" stroke="currentColor" stroke-width="1.4"/></svg>
+  <svg class="divider-glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M12 2C10 6 5.5 11.5 5.5 15.5a6.5 6.5 0 0 0 13 0C18.5 11.5 14 6 12 2Z" stroke="currentColor" stroke-width="1.4"/></svg>
 </div>
 
-<section>
-  <div class="container two-col">
-    <div>
+  <section class="section" aria-labelledby="help-heading">
+    <div class="container">
       <div class="section-head">
-        <h2>Server status &amp; character stats</h2>
-        <p>TreeStats tracks uploaded characters and server uptime across the AC emulation community, Buadren AC included.</p>
+        <h2 id="help-heading">Common questions</h2>
       </div>
-      <div class="status-links">
-        <a class="btn btn-outline" href="https://servers.treestats.net/statuses/Buadren%20AC" target="_blank" rel="noopener">Live server status</a>
-        <a class="btn btn-outline" href="https://treestats.net/Buadren%20AC" target="_blank" rel="noopener">Character &amp; stat rankings</a>
+      <div class="faq">
+        <details>
+          <summary>The launcher says the server is down. What now?</summary>
+          <p>Check the <a href="https://servers.treestats.net/statuses/Buadren%20AC">live server status</a>, then ask in <a href="https://discord.gg/yMkzW3yAd4">Discord</a>. If the status page shows the server up, the problem is probably on your side, and someone there can help you find it.</p>
+        </details>
+        <details>
+          <summary>How many characters can I run at once?</summary>
+          <p>Up to 5 concurrent clients per account.</p>
+        </details>
+        <details>
+          <summary>Is there a test server?</summary>
+          <p>Yes. It isn't in the public server list, it isn't persistent, and it gets wiped as needed to, well, test. If you want to help try out changes before they ship, ask in <a href="https://discord.gg/yMkzW3yAd4">Discord</a> for the current address.</p>
+        </details>
       </div>
     </div>
-    <div class="fact-panel">
-      <h3>Quick reference</h3>
-      <ul class="fact-list">
-        <li>Server Type <b>ACE</b></li>
-        <li>Live <b>gs1.buadren.com:9000</b></li>
-        <li>Test <b>gs2.buadren.com:9000</b></li>
-        <li>Launcher <b><a href="https://www.thwargle.com" target="_blank" rel="noopener">Thwarg Launcher</a></b></li>
-        <li>Client <b>AC: Throne of Destiny</b></li>
-      </ul>
-    </div>
-  </div>
-</section>
+  </section>
 
-<footer>
+<div class="divider">
+  <svg class="divider-glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M12 2C10 6 5.5 11.5 5.5 15.5a6.5 6.5 0 0 0 13 0C18.5 11.5 14 6 12 2Z" stroke="currentColor" stroke-width="1.4"/></svg>
+</div>
+
+  <section class="section" aria-labelledby="stats-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="stats-heading">Server status &amp; character stats</h2>
+        <p>TreeStats tracks uploaded characters and server uptime across the AC emulation community, Buadren AC included.</p>
+        <div class="status-links">
+          <a class="btn btn-outline" href="https://servers.treestats.net/statuses/Buadren%20AC">Live server status</a>
+          <a class="btn btn-outline" href="https://treestats.net/Buadren%20AC">Character &amp; stat rankings</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <a href="index.html" class="brand">
-        <img class="brand-mark" src="img/buadren-icon.png" alt="" width="30" height="30">
+        <img class="brand-mark" src="img/brand-mark.webp" alt="" width="30" height="30">
         Buadren AC
       </a>
-      <nav class="footer-nav">
-        <a href="index.html">Home</a>
-        <a href="play.html">Play</a>
-        <a href="changelog.html">Changelog</a>
-        <a href="https://discord.gg/yMkzW3yAd4" target="_blank" rel="noopener">Discord</a>
-        <a href="https://treestats.net/Buadren%20AC" target="_blank" rel="noopener">Server Stats</a>
-        <a href="https://github.com/BuadrenAC" target="_blank" rel="noopener">GitHub</a>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="play.html">Play</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+          <li><a href="https://discord.gg/yMkzW3yAd4">Discord</a></li>
+          <li><a href="https://servers.treestats.net/statuses/Buadren%20AC">Server Status</a></li>
+          <li><a href="https://treestats.net/Buadren%20AC">Character Stats</a></li>
+          <li><a href="https://github.com/BuadrenAC">GitHub</a></li>
+        </ul>
       </nav>
     </div>
-    <p class="disclaimer">Asheron's Call was a registered trademark of Turbine, Inc. and WB Games Inc. Buadren AC is not associated or affiliated in any way with Turbine, Inc. or WB Games Inc. Radiant Blood artwork is from Asheron's Call and belongs to its respective owners. &copy; <span id="year"></span> Buadren AC. All rights reserved.</p>
+    <p class="disclaimer">Asheron's Call was a registered trademark of Turbine, Inc. and WB Games Inc. Buadren AC is not associated or affiliated in any way with Turbine, Inc. or WB Games Inc. Radiant Blood artwork is from Asheron's Call and belongs to its respective owners. &copy; 2026 Buadren AC. All rights reserved.</p>
   </div>
 </footer>
 
-<script src="js/script.js"></script>
 </body>
 </html>
